@@ -1,0 +1,48 @@
+{
+    // Device Config
+    "jlink_device": "RP2040_M0_0",
+    
+    // Editor Config
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "git.suggestSmartCommit": false,
+    "editor.rulers": [80],
+    "gitblame.inlineMessageEnabled": true,
+    "gitblame.inlineMessageMargin": 8,
+    "gitblame.inlineMessageFormat": "${author.name} – ${commit.summary} (${time.ago})",
+    "gitblame.statusBarMessageFormat": "${author.name}– ${commit.summary} (${time.ago})",
+    
+    // Launch commands
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "JLink - Launch",
+                "cwd": "${workspaceFolder}",
+                "preLaunchTask": "${defaultBuildTask}",
+                "executable": "./build/project.elf",
+                "request": "launch",
+                "type": "cortex-debug",
+                "interface": "swd",
+                "device": "${config:jlink_device}",
+                "runToEntryPoint": "main",
+                "gdbPath": "arm-none-eabi-gdb",
+                "servertype": "jlink"
+            },
+            {
+                "name": "JLink - Attach",
+                "cwd": "${workspaceFolder}",
+                "executable": "./build/project.elf",
+                "request": "attach",
+                "type": "cortex-debug",
+                "interface": "swd",
+                "device": "${config:jlink_device}",
+                "runToEntryPoint": "main",
+                "gdbPath": "arm-none-eabi-gdb",
+                "servertype": "jlink"
+            },
+        ],
+        "compounds": []
+    },
+    
+}
