@@ -19,7 +19,7 @@
             {
                 "name": "JLink - Launch",
                 "cwd": "${workspaceFolder}",
-                "preLaunchTask": "${defaultBuildTask}",
+                "preLaunchTask": "CMake: build",
                 "executable": "./build/project.elf",
                 "request": "launch",
                 "type": "cortex-debug",
@@ -44,5 +44,4 @@
         ],
         "compounds": []
     },
-    
 }
